@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3fa3eg1s1dpm"]
+
+[ext_resource type="Texture2D" uid="uid://baf2mkcregik5" path="res://orderedlistocat.png" id="1_flmxe"]
+[ext_resource type="Script" path="res://player.gd" id="1_ngrrt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tk85o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_flmxe")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_flmxe")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iblki"]
+size = Vector2(272, 219)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 83.0
+offset_bottom = 23.0
+text = "ryan khieu"
+
+[node name="Player" type="Area2D" parent="."]
+script = ExtResource("1_ngrrt")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_tk85o")
+animation = &"up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(-3, -11.5)
+shape = SubResource("RectangleShape2D_iblki")
